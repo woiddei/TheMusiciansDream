@@ -9,7 +9,7 @@
             "Windows 8"
         ],
         "toolkits": [
-            ""
+            "Java awt"
         ]
     },
     "themes": [
