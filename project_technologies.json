@@ -1,19 +1,25 @@
 {
     "technologies": {
         "apis": [
-            "Google App Engine"
-            "youtube"
+            "Google Trends"
             "Google URL shortener"
+            "Picasa"
+            "youtube"
         ],
         "platforms": [
             "Windows 8"
         ],
         "toolkits": [
-            "Java awt"
+            "Java awt",
+            "Java 3d",
+            "OpenGL"
+        ]
+        "languages": [
+        	"Java"
         ]
     },
     "themes": [
-        "music"
+        "music",
         "winter"
     ]
 }
