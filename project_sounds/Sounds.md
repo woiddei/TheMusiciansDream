@@ -7,5 +7,5 @@ Sounds downloaded from freesound.com:
 - 1 Minute Rain (Medium) by yzhamua, uploaded May 19th, 2013.
 - EXT_RainInPuddle.wav by jongrubbs, uploaded October 13th, 2013.
 - huge rain.wav by kujon, oploaded July 10th, 2010.
-All files are licensed under the Creative Commons 0 License.
+All files are licensed under the [Creative Commons 0 License](http://creativecommons.org/publicdomain/zero/1.0/deed.en).
 Files were converted to wav format and sorted from most quiet to loudest.
