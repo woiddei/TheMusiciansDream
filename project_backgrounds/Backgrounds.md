@@ -1,0 +1,72 @@
+Backgrounds from images on pixabay.com:
+1. cloud-sky-clouds-stormy-white by takazart, uploaded July 3rd, 2013.
+
+2. clouds-overcast-stormy-white-light by Bluesnap, uploaded November 7th, 2013.
+
+3. clouds-grey-low-dense-stormy-sky by Bluesnap, uploaded December 25th, 2013.
+
+4. sky-stormy-dull-clouds-blue by takazart, uploaded October 5th, 2013.
+
+5. clouds-sun-partly-cloudy-weather by AllAnd, uploaded November 16th, 2013.
+
+6. clouds-irregular-shapes-white-light by Bluesnap, uploaded October 29th, 2013.
+
+7. sky-clouds-blue-contrail-clear by facebook_timo, uploaded April 20th, 2013.
+
+8. cloud-large-cumulus-white-stark by Bluesnap, uploaded November 1st, 2013.
+
+9. sunbeam-clouds-sky-breakthrough by Hans, uploaded June 6th, 2013.
+
+10. clouds-sky-sunset by Adi08, uploaded February 11th, 2013.
+
+11. sky-cloudy-white-glimmering by Bluesnap, uploaded December 30th, 2013.
+
+12. cloud-sky-sun-light-contrast by ajoheyho, uploaded May 30th, 2013.
+
+13. clouds-broken-light-pentrating by Bluesnap, uploaded November 16th, 2013.
+
+14. clouds-white-loose-closing-gap by Bluesnap, uploaded November 19th, 2013.
+
+15. dark-clouds-sky by PublicDomainPictures, uploaded February 28th, 2012.
+
+16. blue-clouds-day-fluffy-sky-summer by byrev, uploaded March 1st, 2013.
+
+17. sunset-clouds-white-streaked-glow by Bluesnap, uploaded October 6th, 2013.
+
+18. sky-clouds-sun by adrien0, uploaded May 15th, 2013.
+
+19. sky-the-sky-clouds-bird-seagull by spinheike, uploaded July 25th, 2013.
+
+20. sky-sun-blue-cloud-cloudy by peternguyen11, uploaded August 10th, 2013.
+
+21. sky-clouds-blue-skies-nature-white by Greyerbaby, uploaded June 14th, 2013.
+
+22. sky-blue-cloud-cloudy-background by PublicDomainPictures, uploaded November 28th, 2013.
+
+23. sky-sunset-mood-sun-golden-clouds by Hans, uploaded February 13th, 2013.
+
+24. nature-sky-clouds by crashed_angel, uploaded February 23rd, 2013.
+
+25. clouds-sky-glomerulus-rams by m227, uploaded March 12th, 2013.
+
+26. blue-skies-cloud-clouds by eacuna, uploaded April 3rd, 2013.
+
+27. cloud-sky-sunset-white by zsoravecz, uploaded June 21st, 2013.
+
+28. clouds-sky-cloud-landscape by julgeiger, uploaded July 23rd, 2013.
+
+29. sky-dark-sunset-clouds-glow-gold by Bluesnap, uploaded December 27th, 2013.
+
+30. sky-forward-clouds-sunset by VonSinnen, uploaded August 29th, 2013.
+
+31. sky-blue-clouds-summer by RyanMcGuire, uploaded January 4th, 2014.
+
+32. air-atmosphere-blue-clear-climate by PublicDomainPictures, uploaded December 13th, 2010.
+
+33. texas-lightning-storm-weather by tpsdave, uploaded February 10th, 2013.
+
+34. sky-clouds-blue-bruise-cloud by Hans, uploaded February 13th, 2013.
+
+35. clouds-sky-blue-weather-climate by PublicDomainPictures, uploaded March 2nd, 2012.
+
+All files are licensed under the Creative Commons 0 License.
