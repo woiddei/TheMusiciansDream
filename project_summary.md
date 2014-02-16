@@ -12,6 +12,19 @@ I seek to implant musical data into a three-dimentional simulation of a natural 
 I hope to make a more fulfilling and intriguing experience out of music, in an age where audio alone is merely a distraction from the flow of visual data.
 I do wish to use the location tools to make natural and local-looking scenery, to make the viewer feel comfortable in the scenery the music has thrown him into.
 
+## Code example
+
+```java
+    public static float[] getCoordinatesOfLocation(String locationName) throws Exception {
+		String source=WebUtils.getSourceCode("http://maps.googleapis.com/maps/api/geocode/json?address="+locationName+"&sensor=true"),
+			   fromCoordsString=source.split("\"location\"")[1],
+			   latString=fromCoordsString.split("\"lat\" : |,")[1],
+			   lngString=fromCoordsString.split("\"lng\" : |}")[1].trim();
+		return (new float[] {Float.parseFloat(latString),
+							 Float.parseFloat(lngString)});
+	}
+```
+
 ## Images & Videos
 
 This image is an inspiration for my idea of a scene.
