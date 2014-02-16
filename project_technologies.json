@@ -1,18 +1,18 @@
 {
     "technologies": {
         "apis": [
-            "Google Geocoding API",
-            "Google URL shortener",
-            "Picasa",
+            "Geocoding API",
+            "URL shortener",
+            "picasa",
             "youtube"
         ],
         "platforms": [
-            "Windows 8",
-            "Java"
+            "windows",
+            "java"
         ],
         "toolkits": [
-            "Java awt",
-            "Java 3d",
+            "jva awt",
+            "j3d",
             "opengl"
         ]
     },
