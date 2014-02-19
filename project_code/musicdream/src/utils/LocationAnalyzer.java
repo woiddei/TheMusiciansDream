@@ -1,24 +1,30 @@
 package utils;
-import java.util.Arrays;
+/**
+ * Analyzing a user's location using JS API from google and freegeoip.
+ * @author Amir
+ */
 public class LocationAnalyzer {
-	public static void main(String[] args) {
-		System.out.println(Arrays.toString(getCoordinates()));
-	}
 	public static float[] getCoordinates() {
-		try {
+		try { //Actual coordinates check.
 			return getCoordinatesOfLocation(getCountryName());
 		}
-		catch(Exception e) {
+		catch(Exception e) { //Return the most likely guess, aka most populous country, China.
 			return new float[] {35.86166f,104.195397f};
 		}
 	}
-	public static String getCountryName() throws Exception {
+	/*
+	 * Returns the user's country name usin freegeoip's API.
+	 */
+	private static String getCountryName() throws Exception {
 			String source=WebUtils.getSourceCode("http://freegeoip.net/json/"),
 				   fromCountryName=source.split("country_name\":\"")[1],
 				   countryName=fromCountryName.split("\"")[0];
 			return countryName;
 	}
-	public static float[] getCoordinatesOfLocation(String locationName) throws Exception {
+	/*
+	 * Returns the coordinates of the location of a country using google's API.
+	 */
+	private static float[] getCoordinatesOfLocation(String locationName) throws Exception {
 		String source=WebUtils.getSourceCode("http://maps.googleapis.com/maps/api/geocode/json?address="+locationName+"&sensor=true"),
 			   fromCoordsString=source.split("\"location\"")[1],
 			   latString=fromCoordsString.split("\"lat\" : |,")[1],

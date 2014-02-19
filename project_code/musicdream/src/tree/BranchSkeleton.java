@@ -1,7 +1,5 @@
 package tree;
-import java.util.Arrays;
 import java.util.Random;
-
 import javax.media.j3d.Appearance;
 import javax.media.j3d.Group;
 import javax.media.j3d.Node;
@@ -10,7 +8,6 @@ import javax.media.j3d.Transform3D;
 import javax.media.j3d.TransformGroup;
 import javax.vecmath.Point3f;
 import javax.vecmath.Vector3f;
-
 import com.sun.j3d.utils.geometry.Sphere;
 
 import utils.Rand;
@@ -21,9 +18,9 @@ import utils.ThreeD;
  * @author Amir
  */
 public class BranchSkeleton {
-	private Vector3f[] directions;
-	private Point3f[] points;
-	private float[] radii;
+	private Vector3f[] directions; //Vectors for the stems.
+	private Point3f[] points; //Coordinates of the stems' vertices.
+	private float[] radii; 
 	private int length;
 	/**
 	 * Constructs a BranchSkeleton object by given parameters, as detailed here.
@@ -38,7 +35,7 @@ public class BranchSkeleton {
 	 * @param startVector the direction of the first stem.
 	 */
 	public BranchSkeleton(int nCurveRes,float nCurve,float nCurveBack,float nCurveV,Random rand,float totalLength,float radius,Point3f startPoint,Vector3f startVector) {
-		setStartPoints(nCurveRes,radius,startVector);
+		setStartPoints(nCurveRes,radius,startVector); //Some initialization.
 		if(nCurveBack==0) {
 			for(int i=1;i<nCurveRes;i++)
 				setVector(i,nCurve,nCurveRes,nCurveV,rand);
@@ -48,10 +45,15 @@ public class BranchSkeleton {
 				setVector(i,nCurve,nCurveRes/2,nCurveV,rand);
 			for(int i=nCurveRes/2+1;i<nCurveRes;i++)
 				setVector(i,nCurveBack,nCurveRes/2,nCurveV,rand);
-		}
-		scaleDirections(totalLength,nCurveRes);
-		points=utils.ThreeD.setPoints(directions,startPoint);
+		} //All vector values currently point in the right direction but may have incorrect length.
+		scaleDirections(totalLength,nCurveRes); //Scaling the vectors correctly.
+		points=utils.ThreeD.setPoints(directions,startPoint); //Derives points from vectors and starting point.
 	}
+	/*
+	 * Setting some initialization values:
+	 * Number of stems in this branch, length of vector and radii array.
+	 * Setting the first vector as the first vector given to us, normalized.
+	 */
 	private void setStartPoints(int nCurveRes,float radius,Vector3f startVector) {
 		length=nCurveRes;
 		radii=new float[nCurveRes+1];
@@ -60,22 +62,32 @@ public class BranchSkeleton {
 		startVector.normalize();
 		directions[0]=new Vector3f(startVector);
 	}
+	/*
+	 * Sets a vector given the last one and all angle parameters.
+	 */
 	private void setVector(int i,float deterAngle,int curves,float randAngle,Random random) {
 		directions[i]=new Vector3f(0,1,0);
 		Transform3D thisTransform=new Transform3D();
 		thisTransform.rotZ(-angleCalc(deterAngle,curves/2,randAngle,random));
 		thisTransform.transform(directions[i]);
 		ThreeD.bringY(directions[i-1]).transform(directions[i]);
-		if(i==0) System.out.println(directions[i].x);
 	}
+	/*
+	 * Randomly assign value for an angle, given the total curvature angle,
+	 * the number of stems to form this curvature, and the magnitude of the
+	 * random addition to the curvature. Also, a Random regenrator object
+	 * should be passed for creation of the random values.
+	 */
 	private double angleCalc(float angle,int n,float magniture,Random rand) {
 		return angle/n+Rand.randomInRange(-magniture/n,magniture/n,rand);
 	}
+	/*
+	 * Scaling the vectoric directions equally according to the given total length.
+	 */
 	private void scaleDirections(float totalLength, int nCurveRes) {
 		float distance=totalLength/nCurveRes;
 		for(int i=0;i<nCurveRes;i++)
 			directions[i].scale(distance);
-		System.out.println(directions[0].x);
 	}
 	/**
 	 * @return an array of locations for vertices of the branch.
@@ -95,6 +107,14 @@ public class BranchSkeleton {
 	public int getStemsLength() {
 		return length;
 	}
+	/**
+	 * Creates a group node from this BranchSkeleton object.
+	 * @param app Apperance object for this branch.
+	 * @param res - number of straight lines to approximate
+	 * each stem of this branch with.
+	 * @return a group node representing this BranchSkeleton's shape,
+	 * using the given Appearance object.
+	 */
 	public Node getBranchShape(Appearance app,int res) {
 		Group ans=new Group();
 		Shape3D shape;
@@ -110,7 +130,6 @@ public class BranchSkeleton {
 			Transform3D t=new Transform3D();
 			t.setTranslation(new Vector3f(points[i].x,points[i].y,points[i].z));
 			float[] f=new float[16];t.get(f);
-			System.out.println(points[i].x+" "+points[i].y+" "+points[i].z);
 			tg.setTransform(t);
 			ans.addChild(tg);
 		}

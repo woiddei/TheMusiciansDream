@@ -1,11 +1,17 @@
 package utils;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 public class WebUtils {
-	public static String getSourceCode(String toSearch) throws IOException {
+	/**
+	 * Retrieves a web page's source from it's URL, assuming address is legal and
+	 * internet connection is valid.
+	 * @param toSearch a URL for searching.
+	 * @return the source code of the page, if found.
+	 * @throws Exception if adress is invalid or if internet connection is unavailable. 
+	 */
+	public static String getSourceCode(String toSearch) throws Exception {
 		BufferedReader in = null;
 		try{
 			URL url=new URL(toSearch);

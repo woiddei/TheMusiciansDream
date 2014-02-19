@@ -8,7 +8,7 @@ public class ThreeDTest {
 	private static Vector3f x=utils.ThreeD.x,y=utils.ThreeD.y,z=utils.ThreeD.z;
 	/**
 	 * Calling for 7 differend test methods, each one tests one of the functions in ThreeD.
-	 * @param args
+	 * @param args command line arguments for main class - ignored here.
 	 */
 	public static void main(String[] args) {
 		test1();
