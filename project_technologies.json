@@ -8,7 +8,8 @@
         ],
         "platforms": [
             "windows",
-            "java"
+            "java",
+            "javascript"
         ],
         "toolkits": [
             "jva awt",
