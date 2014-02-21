@@ -1,0 +1,25 @@
+44.964798,115.988159 Prunus serrulata
+35.317366,24.581909 Platanus
+-26.273714,124.074097 Eucalyptus
+55.776573,-30.640869 Quercus
+-3.513421,32.991943 Ficus sycomorus
+56.36525,-112.554932 Cupressus
+5.615986,-75.289307 Theobroma cacao
+-26.431228,143.382568 Acacia
+23.885838,6.624756 Tamarix
+24.527135,76.937256 Mangifera indica
+-1.054628,109.984131 Melia azedarach
+30.448674,66.741943 Bauhinia variegata
+55.776573,54.437256 Salix
+64.472794,-130.836182 Populus tremuloides
+30.751278,-97.086182 Nyssa sylvatica
+46.073231,-122.750244 Quercus kelloggii
+-8.754795,-47.867432 Attalea
+-33.137551,-70.367432 Aextoxicon
+62.431074,125.804443 Maackia amurensis
+43.068888,18.956909 Syringa vulgaris
+67.542167,98.234253 Larix gmelinii
+63.937372,17.72644 Betula pendula
+53.330873,20.363159 Pinus sylvestris
+49.037868,7.179565 Celtis australis
+28.149503,43.03894 Olea europaea

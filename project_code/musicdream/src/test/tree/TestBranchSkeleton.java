@@ -11,7 +11,7 @@ import tree.BranchSkeleton;
  */
 public class TestBranchSkeleton {
 	public static void main(String[] args) {
-		BranchSkeleton bs=new BranchSkeleton(6,1,-1,0.1f,new Random(13124324),6,1,new Point3f(),new Vector3f());
+		BranchSkeleton bs=new BranchSkeleton(6,1,-1,0.1f,new Random(13124324),6,1,new Point3f(),new Vector3f(),0);
 		for(int i=0;i<6;i++) //print all skeleton vertices' coordinates.
 			System.out.println(bs.getPoints()[i].x+" "+bs.getPoints()[i].y+" "+bs.getPoints()[i].z);
 	}

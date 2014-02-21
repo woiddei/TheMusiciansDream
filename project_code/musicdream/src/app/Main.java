@@ -9,6 +9,7 @@ import javax.media.j3d.BoundingSphere;
 import javax.media.j3d.BranchGroup;
 import javax.media.j3d.Canvas3D;
 import javax.media.j3d.Material;
+import javax.media.j3d.Transform3D;
 import javax.media.j3d.TransformGroup;
 import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
@@ -43,6 +44,7 @@ public class Main extends Applet {
 		add("Center",canvas); //Magical lines that make java 3d work properly. Don't ask me why.
 		universe=new SimpleUniverse(canvas);
 		universe.getViewingPlatform().setNominalViewingTransform();
+		universe.getViewingPlatform().getViewPlatformTransform().setTransform(new Transform3D(new float[] {1,0,0,0,0,1,0,0,0,0,1,10,0,0,0,1}));
 		addChildren();
 	}
 	/**
@@ -57,17 +59,26 @@ public class Main extends Applet {
 		TransformGroup tg=new TransformGroup(); //This will actually store all leaf nodes because we want them to rotate with mouse movements.
 		tg.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
 		tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-		tg.addChild(new BranchSkeleton(6,0.5f,-0.5f,0.3f,new Random(1253312432),6,0.1f,new Point3f(0,0,-10),new Vector3f(0,1,0)).getBranchShape(ap,10));
-		tg.addChild(new BranchSkeleton(6,0.5f,-0.5f,0.3f,new Random(13125524),6,0.1f,new Point3f(0,0,-10),new Vector3f(0,1,0)).getBranchShape(ap,10));
-		tg.addChild(new BranchSkeleton(6,0.5f,-0.5f,0.3f,new Random(1345512324),6,0.1f,new Point3f(0,0,-10),new Vector3f(0,1,0)).getBranchShape(ap,10));
-		//Three branches initialized by three different roots for Random.
+		BranchShape bs=new BranchShape(new BranchSkeleton(6,0f,-0f,0.9f,new Random(1253312432),6,0.1f,new Point3f(0,-2,0),new Vector3f(0,1,0),0),new Appearance[] {ap,ap},0,10);
+		bs.addChildren(10,0.5f,0.2f,0.3f,0.3f,0.5f,4,-0.3f,0.3f,0.1f,1.2f);
+		tg.addChild(bs);
+		bs=new BranchShape(new BranchSkeleton(6,0.0f,-0.0f,0.9f,new Random(125462432),6,0.1f,new Point3f(0,-2,0),new Vector3f(0,1,0),0),new Appearance[] {ap,ap},0,10);
+		bs.addChildren(10,0.5f,0.2f,0.3f,0.3f,0.5f,4,-0.3f,0.3f,0.1f,1.2f);
+		tg.addChild(bs);
+		bs=new BranchShape(new BranchSkeleton(6,0.0f,-0.0f,0.9f,new Random(3755678),6,0.1f,new Point3f(0,-2,0),new Vector3f(0,1,0),0),new Appearance[] {ap,ap},0,10);
+		bs.addChildren(10,0.5f,0.2f,0.3f,0.3f,0.5f,4,-0.3f,0.3f,0.1f,1.2f);
+		tg.addChild(bs);
+		bs=new BranchShape(new BranchSkeleton(6,0.0f,-0.0f,0.9f,new Random(8765683),6,0.1f,new Point3f(0,-2,0),new Vector3f(0,1,0),0),new Appearance[] {ap,ap},0,10);
+		bs.addChildren(10,0.5f,0.2f,0.3f,0.3f,0.5f,4,-0.3f,0.3f,0.1f,1.2f);
+		tg.addChild(bs);
+		//Four branches initialized by three different roots for Random.
 		MouseRotate mr=new MouseRotate(tg);
-		mr.setSchedulingBounds(new BoundingSphere(new Point3d(), 100));
-		mr.setFactor(0.001,0.001); //Slow rotation.
+		mr.setSchedulingBounds(new BoundingSphere(new Point3d(),100));
+		mr.setFactor(0.01,0.001); //Slow rotation.
 		tg.addChild(mr);
 		group.addChild(tg);
 		Color3f light1Color = new Color3f(1f,1f,1f); //Just to see the model, as a temporary solution.
-		BoundingSphere bounds = new BoundingSphere(new Point3d(), 100);
+		BoundingSphere bounds = new BoundingSphere(new Point3d(),100);
 		AmbientLight light1 = new AmbientLight(light1Color);
 		light1.setInfluencingBounds(bounds); //Some more j3d magic.
 		group.addChild(light1);

@@ -1,6 +1,5 @@
 package tree;
 import javax.media.j3d.GeometryArray;
-import javax.media.j3d.Shape3D;
 import javax.media.j3d.Transform3D;
 import javax.media.j3d.TriangleStripArray;
 import javax.vecmath.Point3f;
@@ -14,7 +13,6 @@ import utils.ThreeD;
  */
 public class Stem {
 	GeometryArray ga; //GeometryArray of this stem.
-	Shape3D stemShape; //Shape of this stem.
 	/**
 	 * Construct a new Stem object, with info about its shape and geometry,
 	 * from given parameters.
@@ -22,7 +20,6 @@ public class Stem {
 	 * @param p1 second point of the shape.
 	 * @param r0 radius of the base around p0.
 	 * @param r1 radius of the base around p1.
-	 * @param res - resolution to simulate the round bases with.
 	 */
 	public Stem(Point3f p0,Point3f p1,float r0,float r1,int res) {
 		float slice=(float)(2*Math.PI/res),thisSlice=0; //advancement for each res. line.
@@ -41,18 +38,11 @@ public class Stem {
 			thisSlice+=slice; //Go for the next slice.
 		}
 		ga=ThreeD.optimize(ga); //Creates normals and so on.
-		stemShape=new Shape3D(ga);
 	}
 	/**
 	 * @return this stem's geometry array object.
 	 */
 	public GeometryArray getGeometryArray() {
 		return ga;
-	}
-	/**
-	 * @return this stem's shape object.
-	 */
-	public Shape3D getShape() {
-		return stemShape;
 	}
 }
