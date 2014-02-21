@@ -30,4 +30,5 @@ I do wish to use the location tools to make natural and local-looking scenery, t
 This image is an inspiration for my idea of a scene.
 ![Some inspiration](project_images/cover1.jpg?raw=true "Some inspiration")
 
+[Second demo](http://youtu.be/FjgzSlxphTc)
 [First demo](http://youtu.be/QXZ4ai-Jqvw)
