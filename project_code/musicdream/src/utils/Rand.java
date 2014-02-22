@@ -55,4 +55,16 @@ public class Rand {
 		return (int)(middle)+
 			   (rand.nextFloat()+(int)(middle)>effective?1:0);
 	}
+	public static int getProbArray(float[] probs,Random rand) {
+		float f=rand.nextFloat();
+		int i=0;
+		while(i<probs.length&&f-probs[i]>0) {
+			f-=probs[i];
+			i++;
+		}
+		return i;
+	}
+	public static float angleAroundZero(float attraction,Random rand) {
+		return (float)(rand.nextGaussian()/Math.sqrt(attraction));
+	}
 }

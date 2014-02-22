@@ -19,16 +19,16 @@ public enum TreeShape {
 	 * @param ratio - the input ratio for this function.
 	 * @return the shape function output.
 	 */
-	public double shapeRatio(float ratio) {
+	public float shapeRatio(float ratio) {
 		switch(this) { //respective function for each shape.
-		case CONICAL: return 0.2+0.8*ratio;
-		case SPHERICAL: return 0.2+0.8*Math.sin(Math.PI*ratio);
-		case HEMISPHERICAL: return 0.2+0.8*Math.sin(Math.PI*ratio/2);
+		case CONICAL: return 0.2f+0.8f*ratio;
+		case SPHERICAL: return 0.2f+0.8f*(float)Math.sin(Math.PI*ratio);
+		case HEMISPHERICAL: return 0.2f+0.8f*(float)Math.sin(Math.PI*ratio/2);
 		case CYLINDRICAL: return 1;
-		case TAPERED_CYLINDRICAL: return 0.5+0.5*ratio;
-		case FLAME: return (ratio<=0.7?ratio/0.7:(1.0-ratio)/0.3);
-		case INVERSE_CONICAL: return 1.0-0.8*ratio;
-		case TEND_FLAME: return (ratio<=0.7?0.5+0.5*ratio/0.7:0.5+0.5*(1.0-ratio)/0.3);
+		case TAPERED_CYLINDRICAL: return 0.5f+0.5f*ratio;
+		case FLAME: return (ratio<=0.7?ratio/0.7f:(1.0f-ratio)/0.3f);
+		case INVERSE_CONICAL: return 1.0f-0.8f*ratio;
+		case TEND_FLAME: return (ratio<=0.7?0.5f+0.5f*ratio/0.7f:0.5f+0.5f*(1.0f-ratio)/0.3f);
 		}
 		return ratio;
 	}

@@ -1,5 +1,6 @@
 package utils;
 import javax.media.j3d.GeometryArray;
+import javax.media.j3d.Shape3D;
 import javax.media.j3d.Transform3D;
 import javax.vecmath.Point3f;
 import javax.vecmath.Vector3f;
@@ -100,5 +101,26 @@ public class ThreeD {
 		for(int i=1;i<=directions.length;i++)
 			ans[i]=new Point3f(ans[i-1].x+directions[i-1].x,ans[i-1].y+directions[i-1].y,ans[i-1].z+directions[i-1].z);
 		return ans;
+	}
+	public static float sphericanDistance(float lat0,float lng0,float lat1,float lng1,float rad) {
+		lat0=radiansToDegrees(lat0);
+		lat1=radiansToDegrees(lat1);
+		lng0=radiansToDegrees(lng0);
+		lng1=radiansToDegrees(lng1);
+		return (float)(rad*Math.acos
+						  (Math.sin(lat0)*Math.sin(lat1)
+				          +Math.cos(lat0)*Math.cos(lat1)
+				          *Math.cos(Math.abs(lng1-lng0))));
+	}
+	public static float radiansToDegrees(float degrees) {
+		return degrees*(float)Math.PI/180;
+	}
+	public static float degreesToRadians(float radians) {
+		return radians*180/(float)Math.PI;
+	}
+	public static Shape3D clone(Shape3D shape) {
+		Shape3D copy=new Shape3D(shape.getGeometry());
+		copy.setAppearance(shape.getAppearance());
+		return copy;
 	}
 }
