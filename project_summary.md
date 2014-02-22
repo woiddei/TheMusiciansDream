@@ -30,5 +30,9 @@ I do wish to use the location tools to make natural and local-looking scenery, t
 This image is an inspiration for my idea of a scene.
 ![Some inspiration](project_images/cover1.jpg?raw=true "Some inspiration")
 
+For some reason the youtube video demos won't show on devart.withgoogle so I'm also writing the links here:
+http://youtu.be/FjgzSlxphTc
+http://youtu.be/QXZ4ai-Jqvw
+
 [Second demo](http://youtu.be/FjgzSlxphTc)
 [First demo](http://youtu.be/QXZ4ai-Jqvw)
