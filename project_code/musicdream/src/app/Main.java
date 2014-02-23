@@ -63,14 +63,14 @@ public class Main extends Applet {
 		tg.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
 		tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 		GeometryArray geo=new TriangleArray(6,GeometryArray.COORDINATES|GeometryArray.ALLOW_COLOR_WRITE);
-		geo.setCoordinates(0,new float[] {-0.2f,0,0,0.2f,0,0,-0.2f,0.1f,0,0.2f,0.1f,0,0.2f,0,0,-0.2f,0.1f,0});
+		geo.setCoordinates(0,new float[] {-0.2f,0,0,0.2f,0,0,-0.2f,0.2f,0,0.2f,0.2f,0,0.2f,0,0,-0.2f,0.2f,0});
 		Shape3D leafShape=new Shape3D(geo);
 		Appearance ap0=new Appearance();
 		Material mat0=new Material();
 		mat0.setAmbientColor(new Color3f(58/255f,95/255f,11/255f)); //Green.
 		ap0.setMaterial(mat0);
 		leafShape.setAppearance(ap0);
-		Tree tree=new Tree(new Random(13214),TreeShape.TEND_FLAME,0.3f,3,0.02f,1.2f,5,0.2f,0.5f,1.1f,1f,1f,0f,Arrays.asList(10,6,5),Arrays.asList(0.5f,0.3f,0.2f,0.4f),Arrays.asList(-0.3f,-0.5f,0f,0.1f),Arrays.asList(0.1f,0.05f,0.05f,0.05f),Arrays.asList(30f,0.5f,0.5f,0.5f),Arrays.asList(1f,1f,0.5f,0.1f),Arrays.asList(0.5f,0.3f,0.5f,0.5f),Arrays.asList(0.1f,0.1f,0.2f,0.3f),Arrays.asList(1f,1f,1f,1f),Arrays.asList(0.5f,0.5f,0.5f,1f),Arrays.asList(1,40,10,5),Arrays.asList(ap),10f,new Leaf(leafShape),5,0f);
+		Tree tree=new Tree(new Random(13214),TreeShape.TEND_FLAME,0.3f,3,0.02f,1.2f,5,0.2f,0.5f,1.1f,1f,1f,0f,Arrays.asList(10,6,5),Arrays.asList(0.5f,0.3f,0.2f,0.4f),Arrays.asList(-0.3f,-0.5f,0f,0.1f),Arrays.asList(0.1f,0.05f,0.05f,0.05f),Arrays.asList(30f,0.5f,0.5f,0.5f),Arrays.asList(1f,1f,0.5f,0.1f),Arrays.asList(0.5f,0.3f,0.5f,0.5f),Arrays.asList(0.1f,0.1f,0.2f,0.3f),Arrays.asList(1f,1f,1f,1f),Arrays.asList(0.5f,0.5f,0.5f,1f),Arrays.asList(1,40,10,5),Arrays.asList(ap),0.1f,new Leaf(leafShape),5,100f);
 		tg.addChild(tree);
 		MouseRotate mr=new MouseRotate(tg);
 		mr.setSchedulingBounds(new BoundingSphere(new Point3d(),100));
