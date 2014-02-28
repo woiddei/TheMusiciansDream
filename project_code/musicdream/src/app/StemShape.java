@@ -7,7 +7,6 @@ public class StemShape extends Shape3D {
 	private Appearance app;
 	public StemShape(Stem stem,Appearance app) {
 		super(stem.getGeometryArray(),app);
-		this.stem=stem;
 		this.app=app;
 	}
 	public Stem getStem() {

@@ -26,7 +26,6 @@ public class TrunkShape extends BoughShape {
 			if(i>0) tg.addChild(s);
 			Transform3D t=new Transform3D();
 			t.setTranslation(new Vector3f(trunk.getPoint(i).x,trunk.getPoint(i).y,trunk.getPoint(i).z));
-			float[] f=new float[16];t.get(f);
 			tg.setTransform(t);
 			this.addChild(tg);
 		}

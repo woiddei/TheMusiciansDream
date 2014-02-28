@@ -1,9 +1,11 @@
 package tree;
 import javax.media.j3d.GeometryArray;
 import javax.media.j3d.Transform3D;
+import javax.media.j3d.TransformGroup;
 import javax.media.j3d.TriangleStripArray;
 import javax.vecmath.Point3f;
 import javax.vecmath.Vector3f;
+
 import utils.ThreeD;
 /**
  * Representing a single stem's geomentry information and shape.

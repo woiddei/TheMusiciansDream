@@ -28,7 +28,7 @@ import com.sun.j3d.utils.universe.SimpleUniverse;
 public class Main extends Applet {
 	private static final long serialVersionUID = 2L;
 	SimpleUniverse universe=null;
-	BranchGroup group=new BranchGroup();
+	BranchGroup group=null;
 	final static int XRESOLUTION=1000,YRESOLUTION=700;
 	//final static int XRESOLUTION=1920,YRESOLUTION=1080;
 	//for exporting high-quality movie.
@@ -39,6 +39,7 @@ public class Main extends Applet {
 	 * and creates the basic 3d universe and canvas.
 	 */
 	public void init() {
+		group=new BranchGroup();
 		setSize(XRESOLUTION,YRESOLUTION);
 		GraphicsConfiguration gc=SimpleUniverse.getPreferredConfiguration();
 		Canvas3D canvas=new Canvas3D(gc);
@@ -54,6 +55,7 @@ public class Main extends Applet {
 	 * Creates the objects on the scene, adds behavior effects and so on.
 	 */
 	public void addChildren() {
+		try{
 		BranchGroup group=new BranchGroup(); //Root group of the applet.
 		Appearance ap=new Appearance(); //Configurate a material for the branch.
 		Material mat=new Material();
@@ -62,15 +64,15 @@ public class Main extends Applet {
 		TransformGroup tg=new TransformGroup(); //This will actually store all leaf nodes because we want them to rotate with mouse movements.
 		tg.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
 		tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-		GeometryArray geo=new TriangleArray(6,GeometryArray.COORDINATES|GeometryArray.ALLOW_COLOR_WRITE);
-		geo.setCoordinates(0,new float[] {-0.2f,0,0,0.2f,0,0,-0.2f,0.2f,0,0.2f,0.2f,0,0.2f,0,0,-0.2f,0.2f,0});
+		GeometryArray geo=new TriangleArray(3,GeometryArray.COORDINATES|GeometryArray.ALLOW_COLOR_WRITE);
+		geo.setCoordinates(0,new float[] {-0.05f,0,0,0.05f,0,0,0,0.2f,0});
 		Shape3D leafShape=new Shape3D(geo);
 		Appearance ap0=new Appearance();
 		Material mat0=new Material();
 		mat0.setAmbientColor(new Color3f(58/255f,95/255f,11/255f)); //Green.
 		ap0.setMaterial(mat0);
 		leafShape.setAppearance(ap0);
-		Tree tree=new Tree(new Random(13214),TreeShape.TEND_FLAME,0.3f,3,0.02f,1.2f,5,0.2f,0.5f,1.1f,1f,1f,0f,Arrays.asList(10,6,5),Arrays.asList(0.5f,0.3f,0.2f,0.4f),Arrays.asList(-0.3f,-0.5f,0f,0.1f),Arrays.asList(0.1f,0.05f,0.05f,0.05f),Arrays.asList(30f,0.5f,0.5f,0.5f),Arrays.asList(1f,1f,0.5f,0.1f),Arrays.asList(0.5f,0.3f,0.5f,0.5f),Arrays.asList(0.1f,0.1f,0.2f,0.3f),Arrays.asList(1f,1f,1f,1f),Arrays.asList(0.5f,0.5f,0.5f,1f),Arrays.asList(1,40,10,5),Arrays.asList(ap),0.1f,new Leaf(leafShape),5,100f);
+		Tree tree=new Tree(new Random(13214),TreeShape.CONICAL,0.3f,3,0.02f,1.2f,5,0.2f,0.5f,1.1f,1f,1f,0f,Arrays.asList(10,6,5),Arrays.asList(0.5f,0.3f,0.2f,0.4f),Arrays.asList(-0.3f,-0.5f,0f,0.1f),Arrays.asList(0.1f,0.05f,0.05f,0.05f),Arrays.asList(30f,0.5f,0.5f,0.5f),Arrays.asList(1f,0.5f,0.5f,0.5f),Arrays.asList(0.5f,0.3f,0.5f,0.5f),Arrays.asList(0.1f,0.1f,0.2f,0.3f),Arrays.asList(1f,1f,1f,1f),Arrays.asList(0.5f,0.5f,0.5f,1f),Arrays.asList(0,40,10,10),Arrays.asList(ap),0.1f,new Leaf(leafShape),20,0f);
 		tg.addChild(tree);
 		MouseRotate mr=new MouseRotate(tg);
 		mr.setSchedulingBounds(new BoundingSphere(new Point3d(),100));
@@ -84,5 +86,9 @@ public class Main extends Applet {
 		group.addChild(light1);
 		showStatus("Displaying Scene");
 		universe.addBranchGraph(group);
+		}
+		catch(Error e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }

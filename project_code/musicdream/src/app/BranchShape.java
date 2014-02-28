@@ -33,7 +33,7 @@ public class BranchShape extends BoughShape {
 			t.setTranslation(new Vector3f(bs.getPoint(i).x,bs.getPoint(i).y,bs.getPoint(i).z));
 			float[] f=new float[16];t.get(f);
 			tg.setTransform(t);
-			this.addChild(tg);
+			addChild(tg);
 		}
 	}
 	/**
@@ -83,6 +83,8 @@ public class BranchShape extends BoughShape {
 		t1.mul(t2);
 		t0.mul(t1);
 		TransformGroup tg=new TransformGroup(t0);
+		tg.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
+		tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 		tg.addChild(s);
 		super.addChild(tg);
 	}

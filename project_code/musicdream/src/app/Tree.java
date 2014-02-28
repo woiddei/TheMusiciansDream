@@ -3,10 +3,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import javax.media.j3d.Appearance;
+import javax.media.j3d.BoundingSphere;
 import javax.media.j3d.Group;
+import javax.media.j3d.RotationInterpolator;
+import javax.media.j3d.Transform3D;
+import javax.media.j3d.TransformGroup;
+import javax.vecmath.Point3d;
+import javax.vecmath.Point3f;
+import javax.vecmath.Vector3f;
 import tree.TreeShape;
 import tree.Trunk;
 import utils.Rand;
+import utils.ThreeD;
 public class Tree extends Group {
 	private TrunkShape trunk;
 	private Random rand;
@@ -53,7 +61,31 @@ public class Tree extends Group {
 			  trunkRadius=trunkLength*ratio*(radScale+Rand.randomInRange(-radScaleV,radScaleV,rand));
 		trunk=new TrunkShape(new Trunk(getElement(curveRes,0),getElement(curve,0),getElement(curveBack,0),getElement(curveV,0),rand,trunkLength,trunkRadius,flare),getElement(apps,0),res,lobeDepth,lobes);
 		addAllSons(trunk);
+		animate(trunk);
 		addChild(trunk);
+	}
+	private void animate(TrunkShape trunk) {
+		int children=trunk.numChildren();
+		for(int i=curveRes.get(0)*2;i<children;i++) {
+			BranchShape bs=(BranchShape)trunk.getChild(curveRes.get(0)*2);
+			trunk.removeChild(curveRes.get(0)*2);
+			Point3f[] p=trunk.getTrunk().getPointAndDirOnBranch(bs.getBs().getOffset());
+			ThreeD.toX(trunk.getSons().get(i-2*curveRes.get(0)).getBs().getDirection(0)).transform(p[1]);
+			Transform3D t=new Transform3D(p[1].y>0?new float[] {0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1}:new float[] {0,-1,0,0,1,0,0,0,0,0,1,0,0,0,0,1}),t0=new Transform3D(),t1=new Transform3D();
+			t0.setTranslation(new Vector3f(-p[0].x,-p[0].y,-p[0].z));
+			t1.setTranslation(new Vector3f(p[0].x,p[0].y,p[0].z));
+			TransformGroup tg=new TransformGroup(),tg0=new TransformGroup(t0),tg1=new TransformGroup(t1);
+			t0.setTranslation(new Vector3f(p[0]));
+			tg0.addChild(bs);
+			tg.addChild(tg0);
+			tg.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
+			tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+			RotationInterpolator ri=new RotationInterpolator(new WindAlpha(1f,rand),tg,t,0,1.25f);
+			ri.setSchedulingBounds(new BoundingSphere(new Point3d(),100));
+			tg.addChild(ri);
+			tg1.addChild(tg);
+			addChild(tg1);
+		}
 	}
 	private List<Float> calcMaxLength(List<Float> length, List<Float> lengthV) {
 		List<Float> ans=new ArrayList<>();

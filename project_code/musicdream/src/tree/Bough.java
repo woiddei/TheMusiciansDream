@@ -65,6 +65,9 @@ public class Bough {
 	public Point3f getPoint(int i) {
 		return points[i];
 	}
+	public Vector3f getDirection(int i) {
+		return directions[i];
+	}
 	public void setPoint(int i,Point3f p) {
 		points[i]=p;
 	}

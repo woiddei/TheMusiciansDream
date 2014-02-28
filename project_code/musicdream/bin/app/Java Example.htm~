@@ -1,0 +1,15 @@
+
+<!-- saved from url=(0079)file:///C:/Users/%D7%90%D7%9E%D7%99%D7%A8/workspace/musicdream/bin/app/Try.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Java Example</title>
+</head>
+
+<body>
+This is my page<br>
+Below you see an applet<br>
+<br>
+<applet code="Main.class" width="200" height="100">
+</applet>
+
+ 
+</body></html>
